@@ -1,0 +1,36 @@
+---
+- name: Remove os pacotes não usados
+  ansible.builtin.dnf:
+    name: "{{ item }}"
+    state: absent
+  become: true
+  loop:
+    - gnome-connections
+    - gnome-maps
+    - libreoffice-core
+    - mediawriter
+    - rhythmbox
+
+- name: Instala os pacotes necessários
+  ansible.builtin.dnf:
+    name: "{{ item }}"
+    state: present
+  become: true
+  loop:
+    - dnf-plugins-core
+    - gnome-tweaks
+    - gnome-theme-extra
+    - google-chrome-stable
+    - libvirt
+    - neovim
+    - nodejs
+    - papirus-icon-theme
+    - plocate
+    - python3-neovim
+    - python3-pip
+    - rsms-inter-fonts
+    - tailscale
+    - tmux
+    - vagrant
+    - vagrant-libvirt
+    - virt-manager

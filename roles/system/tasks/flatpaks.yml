@@ -1,0 +1,17 @@
+---
+- name: Instala os flatpaks necessários
+  community.general.flatpak:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - com.bitwarden.desktop
+    - com.discordapp.Discord
+    - com.spotify.Client
+    - io.dbeaver.DBeaverCommunity
+    - io.ente.auth
+    - io.gitlab.adhami3310.Impression
+    - org.localsend.localsend_app
+    - org.onlyoffice.desktopeditors
+    - org.remmina.Remmina
+    - org.videolan.VLC
+    - md.obsidian.Obsidian

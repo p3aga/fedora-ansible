@@ -1,0 +1,9 @@
+---
+- name: Instala/Remove pacotes necessários
+  ansible.builtin.include_tasks: packages.yml
+
+- name: Instala os flatpaks necessários
+  ansible.builtin.include_tasks: flatpaks.yml
+
+- name: Instala o VSCode
+  ansible.builtin.include_tasks: code.yml
