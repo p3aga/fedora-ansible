@@ -1,0 +1,11 @@
+---
+- name: Ativa o COPR do MISE
+  community.general.copr:
+    name: jdxcode/mise
+    state: present
+
+- name: Instala o MISE
+  ansible.builtin.dnf:
+    name: mise
+    state: present
+    update_cache: true

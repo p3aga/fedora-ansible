@@ -1,0 +1,14 @@
+---
+- name: Instala pacotes de Multimidia
+  ansible.builtin.dnf:
+    name: '@Multimedia'
+    state: present
+    install_weak_deps: false
+    exclude:
+      - 'PackageKit-gstreamer-plugin'
+
+- name: Instala os Codecs ffmpeg
+  ansible.builtin.dnf:
+    name: ffmpeg
+    state: present
+    allowerasing: true

@@ -1,16 +1,14 @@
 ---
-- name: Configura o repositório do vscode
+- name: Configura o repositório do VScode
   ansible.builtin.copy:
     src: vscode.repo
     dest: /etc/yum.repos.d/vscode.repo
-    mode: 0644
+    mode: '644'
     owner: root
     group: root
-  become: true
 
-- name: Instala o vscode
+- name: Instala o VScode
   ansible.builtin.dnf:
     name: code
     state: present
     update_cache: true
-  become: true

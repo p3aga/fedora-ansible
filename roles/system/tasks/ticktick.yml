@@ -1,0 +1,11 @@
+---
+- name: Instala o TickTick
+  ansible.builtin.dnf:
+    name: "{{ ticktick_package_url }}"
+    state: present
+
+- name: Configura o icone do TickTick
+  ansible.builtin.lineinfile:
+    path: /usr/share/applications/ticktick.desktop
+    regexp: '^Icon=ticktick$'
+    line: 'Icon=com.ticktick.TickTick'

@@ -1,5 +1,13 @@
 ---
+- name: Obtem a versão do Fedora
+  ansible.builtin.set_fact:
+    system_fedora_version: "{{ ansible_distribution_major_version }}"
+
 - name: Instala o RPM Fusion Free
-  ansible.builtin.yum:
-    name: https://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm
+  ansible.builtin.dnf:
+    name: "{{ item }}"
     state: present
+    disable_gpg_check: true
+  loop:
+    - "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ system_fedora_version }}.noarch.rpm"
+    - "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ system_fedora_version }}.noarch.rpm"

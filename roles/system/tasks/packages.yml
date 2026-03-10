@@ -3,7 +3,6 @@
   ansible.builtin.dnf:
     name: "{{ item }}"
     state: absent
-  become: true
   loop:
     - gnome-connections
     - gnome-maps
@@ -15,7 +14,6 @@
   ansible.builtin.dnf:
     name: "{{ item }}"
     state: present
-  become: true
   loop:
     - dnf-plugins-core
     - gnome-tweaks

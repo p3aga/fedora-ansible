@@ -1,0 +1,13 @@
+---
+- name: Configura o iptables para o firewall do libvirt funcionar
+  ansible.builtin.lineinfile:
+    path: /etc/libvirt/network.conf
+    line: 'firewall_backend = "iptables"'
+    insertafter: '^#\sfirewall_backend\s=\s"nftables"$'
+  notify: Reinicia o libvirt
+
+- name: Ativa o libvirt
+  ansible.builtin.service:
+    name: libvirtd
+    state: started
+    enabled: true

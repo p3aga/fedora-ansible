@@ -1,0 +1,5 @@
+---
+- name: Reinicia o libvirt
+  ansible.builtin.service:
+    name: libvirtd
+    state: restarted
