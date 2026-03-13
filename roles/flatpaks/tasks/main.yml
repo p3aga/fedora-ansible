@@ -1,5 +1,5 @@
 ---
-- name: Instala os flatpaks necessários
+- name: Instala os flatpaks necessarios
   community.general.flatpak:
     name: "{{ item }}"
     state: present
@@ -7,9 +7,11 @@
     - com.bitwarden.desktop
     - com.discordapp.Discord
     - com.spotify.Client
+    - com.ticktick.TickTick
     - io.dbeaver.DBeaverCommunity
     - io.ente.auth
     - io.gitlab.adhami3310.Impression
+    - io.podman_desktop.PodmanDesktop
     - org.localsend.localsend_app
     - org.onlyoffice.desktopeditors
     - org.remmina.Remmina

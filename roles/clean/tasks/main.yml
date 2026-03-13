@@ -4,7 +4,7 @@
     name: phracek/PyCharm
     state: absent
 
-- name: Desativa o serviço ABRT
+- name: Desativa o servico ABRT
   ansible.builtin.service:
     name: abrtd
     state: stopped

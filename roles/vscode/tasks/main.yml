@@ -1,5 +1,5 @@
 ---
-- name: Configura o repositório do VScode
+- name: Configura o repositorio do VScode
   ansible.builtin.copy:
     src: vscode.repo
     dest: /etc/yum.repos.d/vscode.repo

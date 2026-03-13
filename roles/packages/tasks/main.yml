@@ -1,5 +1,5 @@
 ---
-- name: Remove os pacotes não usados
+- name: Remove os pacotes nao usados
   ansible.builtin.dnf:
     name: "{{ item }}"
     state: absent
@@ -10,7 +10,7 @@
     - mediawriter
     - rhythmbox
 
-- name: Instala os pacotes necessários
+- name: Instala os pacotes necessarios
   ansible.builtin.dnf:
     name: "{{ item }}"
     state: present

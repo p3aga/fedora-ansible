@@ -1,0 +1,13 @@
+---
+- name: Provisiona o sistema
+  hosts: localhost
+  become: true
+  roles:
+    - { role: clean, tags: [clean] }
+    - { role: rpmfusion, tags: [rpmfusion] }
+    - { role: codecs, tags: [codecs] }
+    - { role: packages, tags: [packages] }
+    - { role: flatpaks, tags: [flatpaks] }
+    - { role: brew, tags: [brew] }
+    - { role: vscode, tags: [vscode] }
+    - { role: libvirt, tags: [libvirt] }

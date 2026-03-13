@@ -1,5 +1,5 @@
 ---
-- name: Obtem a versão do Fedora
+- name: Obtem a versao do Fedora
   ansible.builtin.set_fact:
     system_fedora_version: "{{ ansible_distribution_major_version }}"
 

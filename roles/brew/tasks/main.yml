@@ -1,0 +1,30 @@
+---
+- name: Instala dependencias do Homebrew
+  ansible.builtin.dnf:
+    name: '@Development Tools'
+    state: present
+
+- name: Verifica se o Homebrew ja existe em /home/linuxbrew
+  ansible.builtin.stat:
+    path: /home/linuxbrew/.linuxbrew/bin/brew
+  register: brew_global_bin
+
+- name: Instala o Homebrew
+  ansible.builtin.shell: >
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  when: not brew_global_bin.stat.exists
+  args:
+    creates: "/home/linuxbrew/.linuxbrew/bin/brew"
+  environment:
+    NONINTERACTIVE: "1"
+
+- name: Cria o grupo linuxbrew
+  ansible.builtin.group:
+    name: linuxbrew
+    state: present
+
+- name: Atribui o grupo linuxbrew ao usuario
+  ansible.builtin.user:
+    name: "{{ lookup('env', 'USER') }}"
+    groups: linuxbrew
+    append: true
