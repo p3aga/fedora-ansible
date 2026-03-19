@@ -1,12 +1,18 @@
 {
-  "image": "ghcr.io/ansible/community-ansible-dev-tools:latest",
+  "build": {
+    "dockerfile": "Containerfile"
+  },
   "customizations": {
     "vscode": {
       "extensions": [
         "redhat.ansible",
         "redhat.vscode-yaml",
-        "editorconfig.editorconfig"
+        "editorconfig.editorconfig",
+        "ms-python.python",
+        "samuelcolvin.jinjahtml"
       ]
     }
-  }
+  },
+  "name": "Ansible Dev Container",
+  "updateRemoteUserUID": true
 }
