@@ -23,6 +23,14 @@
     name: linuxbrew
     state: present
 
+- name: Altera o dono do diretório do Homebrew para o grupo linuxbrew
+  ansible.builtin.file:
+    path: /home/linuxbrew
+    owner: root
+    group: linuxbrew
+    recurse: true
+    mode: '775'
+
 - name: Atribui o grupo linuxbrew ao usuario
   ansible.builtin.user:
     name: "{{ lookup('env', 'USER') }}"
