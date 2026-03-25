@@ -1,7 +1,7 @@
 ---
 - name: Deploy GNOME and GDM dconf settings
   ansible.builtin.copy:
-    src: 99-gnome-settings.conf
+    src: 99-custom-settings.conf
     dest: '{{ item }}/99-custom-settings.conf'
     owner: root
     group: root
