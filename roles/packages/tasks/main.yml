@@ -3,6 +3,7 @@
   ansible.builtin.dnf:
     name: "{{ item }}"
     state: absent
+    allowerasing: true
   loop:
     - gnome-connections
     - gnome-maps
