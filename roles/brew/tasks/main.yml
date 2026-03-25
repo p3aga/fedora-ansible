@@ -10,6 +10,8 @@
   register: brew_global_bin
 
 - name: Install Homebrew
+  become: true
+  become_user: "{{ lookup('env', 'USER') }}"
   ansible.builtin.shell: >
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   when: not brew_global_bin.stat.exists
@@ -30,9 +32,3 @@
     group: linuxbrew
     recurse: true
     mode: '775'
-
-- name: Add current user to linuxbrew group
-  ansible.builtin.user:
-    name: "{{ lookup('env', 'USER') }}"
-    groups: linuxbrew
-    append: true
