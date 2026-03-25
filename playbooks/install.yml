@@ -9,5 +9,7 @@
     - { role: packages, tags: [packages] }
     - { role: flatpaks, tags: [flatpaks, packages] }
     - { role: brew, tags: [brew, packages] }
+    - { role: gnome, tags: [gnome, packages] }
     - { role: vscode, tags: [vscode, packages] }
     - { role: libvirt, tags: [libvirt] }
+    - { role: services, tags: [services] }
