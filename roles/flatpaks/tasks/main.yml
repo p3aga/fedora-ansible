@@ -1,5 +1,5 @@
 ---
-- name: Instala os flatpaks necessarios
+- name: Install required Flatpak apps
   community.general.flatpak:
     name: "{{ item }}"
     state: present

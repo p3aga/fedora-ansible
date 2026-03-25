@@ -1,9 +1,9 @@
 ---
-- name: Obtem a versao do Fedora
+- name: Get Fedora major version
   ansible.builtin.set_fact:
     rpmfusion_fedora_version: "{{ ansible_distribution_major_version }}"
 
-- name: Instala o RPM Fusion Free
+- name: Install RPM Fusion repositories
   ansible.builtin.dnf:
     name: "{{ item }}"
     state: present

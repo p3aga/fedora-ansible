@@ -1,5 +1,5 @@
 ---
-- name: Copia o arquivo de configuração do GNOME/GDM
+- name: Deploy GNOME and GDM dconf settings
   ansible.builtin.copy:
     src: 99-gnome-settings.conf
     dest: '{{ item }}/99-custom-settings.conf'
@@ -10,5 +10,5 @@
     - '/etc/dconf/db/local.d'
     - '/etc/dconf/db/gdm.d'
   notify:
-    - Reseta as configurações do GNOME
-    - Atualiza o dconf
+    - Reset GNOME settings
+    - Update dconf database

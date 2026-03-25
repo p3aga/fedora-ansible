@@ -1,5 +1,5 @@
 ---
-- name: Instala pacotes de Multimidia
+- name: Install multimedia package group
   ansible.builtin.dnf:
     name: '@Multimedia'
     state: present
@@ -7,7 +7,7 @@
     exclude:
       - 'PackageKit-gstreamer-plugin'
 
-- name: Instala os Codecs ffmpeg
+- name: Install FFmpeg codecs
   ansible.builtin.dnf:
     name: ffmpeg
     state: present

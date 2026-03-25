@@ -1,5 +1,5 @@
 ---
-- name: Remove os pacotes nao usados
+- name: Remove unused packages
   ansible.builtin.dnf:
     name: "{{ item }}"
     state: absent
@@ -10,7 +10,7 @@
     - mediawriter
     - rhythmbox
 
-- name: Instala os pacotes necessarios
+- name: Install required packages
   ansible.builtin.dnf:
     name: "{{ item }}"
     state: present
@@ -34,5 +34,5 @@
     - vagrant-libvirt
     - virt-manager
 
-- name: Instala o TickTick
+- name: Include TickTick tasks
   ansible.builton.include_tasks: ticktick.yml

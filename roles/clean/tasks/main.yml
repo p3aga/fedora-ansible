@@ -1,16 +1,16 @@
 ---
-- name: Desativa o COPR do pycharm
+- name: Disable PyCharm COPR repository
   community.general.copr:
     name: phracek/PyCharm
     state: absent
 
-- name: Desativa o servico ABRT
+- name: Disable ABRT service
   ansible.builtin.service:
     name: abrtd
     state: stopped
     enabled: false
 
-- name: Remove os pacotes RPM fusion da Nvidia e Steam
+- name: Remove Nvidia and Steam RPM Fusion repos
   ansible.builtin.file:
     path: "/etc/yum.repos.d/rpmfusion-nonfree-{{ item }}.repo"
     state: absent

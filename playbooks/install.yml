@@ -1,5 +1,5 @@
 ---
-- name: Provisiona o sistema
+- name: Provision system
   hosts: localhost
   become: true
   roles:

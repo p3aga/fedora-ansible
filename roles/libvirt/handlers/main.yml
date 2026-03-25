@@ -1,5 +1,5 @@
 ---
-- name: Reinicia o libvirt
+- name: Restart libvirt service
   ansible.builtin.service:
     name: libvirtd
     state: restarted
