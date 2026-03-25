@@ -1,0 +1,13 @@
+- name: Reseta as configurações do GNOME
+  ansible.builtin.command: dconf reset {{ item }}
+  loop:
+    - /org/gnome/desktop/background/picture-uri
+    - /org/gnome/desktop/background/picture-uri-dark
+    - /org/gnome/shell/enabled-extensions
+  register: gnome_reset_result
+  changed_when: gnome_reset_result.rc == 0
+
+- name: Atualiza o dconf
+  ansible.builtin.command: dconf update
+  register: gnome_update_result
+  changed_when: gnome_update_result.rc == 0

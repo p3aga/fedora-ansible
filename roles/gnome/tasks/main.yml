@@ -1,0 +1,14 @@
+---
+- name: Copia o arquivo de configuração do GNOME/GDM
+  ansible.builtin.copy:
+    src: 99-gnome-settings.conf
+    dest: '{{ item }}/99-custom-settings.conf'
+    owner: root
+    group: root
+    mode: '644'
+  loop:
+    - '/etc/dconf/db/local.d'
+    - '/etc/dconf/db/gdm.d'
+  notify:
+    - Reseta as configurações do GNOME
+    - Atualiza o dconf

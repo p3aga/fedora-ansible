@@ -16,6 +16,7 @@
     state: present
   loop:
     - dnf-plugins-core
+    - docker-compose
     - gnome-tweaks
     - gnome-theme-extra
     - google-chrome-stable
@@ -32,3 +33,6 @@
     - vagrant
     - vagrant-libvirt
     - virt-manager
+
+- name: Instala o TickTick
+  ansible.builton.include_tasks: ticktick.yml

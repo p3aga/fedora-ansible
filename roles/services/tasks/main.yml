@@ -1,0 +1,15 @@
+---
+- name: Ativa o serviço SSH
+  become: true
+  ansible.builtin.service:
+    name: sshd
+    state: started
+    enabled: true
+  when: services_enable_ssh
+
+- name: Ativa o serviço Tailscale
+  become: true
+  ansible.builtin.service:
+    name: tailscaled
+    state: started
+    enabled: true
