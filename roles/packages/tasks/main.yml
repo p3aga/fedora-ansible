@@ -5,11 +5,14 @@
     state: absent
     allowerasing: true
   loop:
+    - gnome-boxes
     - gnome-connections
     - gnome-maps
+    - gnome-tour
     - libreoffice-core
     - mediawriter
     - rhythmbox
+    - yelp
 
 - name: Install required packages
   ansible.builtin.dnf:
