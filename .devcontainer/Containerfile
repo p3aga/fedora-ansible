@@ -1,5 +1,8 @@
 FROM debian:bookworm-slim
 
+ENV LANG=C.UTF-8
+ENV LC_ALL=C.UTF-8
+
 RUN DEBIAN_FRONTEND=noninteractive apt-get update \
   && apt-get install -y --no-install-recommends \
     bash-completion \
@@ -22,6 +25,7 @@ USER vscode
 
 ENV PATH="/home/vscode/.local/bin:${PATH}"
 
-RUN pipx install --include-deps ansible-dev-tools
+RUN pipx install --include-deps ansible-dev-tools \
+  && ansible-galaxy collection install community.general
 
 WORKDIR /workspaces
