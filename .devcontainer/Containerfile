@@ -25,7 +25,9 @@ USER vscode
 
 ENV PATH="/home/vscode/.local/bin:${PATH}"
 
+COPY requirements.yml /tmp/requirements.yml
+
 RUN pipx install --include-deps ansible-dev-tools \
-  && ansible-galaxy collection install community.general
+  && ansible-galaxy collection install -r /tmp/requirements.yml
 
 WORKDIR /workspaces

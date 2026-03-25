@@ -1,6 +1,7 @@
 {
   "build": {
-    "dockerfile": "Containerfile"
+    "dockerfile": "Containerfile",
+    "context": ".."
   },
   "customizations": {
     "vscode": {
