@@ -1,15 +1,12 @@
 ---
 - name: Install TickTick package
-  become: true
   ansible.builtin.dnf:
     name: "{{ packages_ticktick_url }}"
     state: present
     disable_gpg_check: true
 
 - name: Set TickTick desktop icon
-  become: true
   ansible.builtin.lineinfile:
     path: /usr/share/applications/ticktick.desktop
     regexp: '^Icon=ticktick$'
     line: 'Icon=com.ticktick.TickTick'
-  register: libvirt_firewall

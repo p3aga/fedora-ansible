@@ -1,0 +1,34 @@
+---
+- name: Disable PyCharm COPR repository
+  community.general.copr:
+    name: phracek/PyCharm
+    state: absent
+
+- name: Remove Nvidia and Steam RPM Fusion repos
+  ansible.builtin.file:
+    path: "/etc/yum.repos.d/rpmfusion-nonfree-{{ item }}.repo"
+    state: absent
+  loop:
+    - nvidia-driver
+    - steam
+
+- name: Get Fedora major version
+  ansible.builtin.set_fact:
+    repos_fedora_version: "{{ ansible_distribution_major_version }}"
+
+- name: Install RPM Fusion repositories
+  ansible.builtin.dnf:
+    name: "{{ item }}"
+    state: present
+    disable_gpg_check: true
+  loop:
+    - "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ repos_fedora_version }}.noarch.rpm"
+    - "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ repos_fedora_version }}.noarch.rpm"
+
+- name: Configure VS Code repository
+  ansible.builtin.copy:
+    src: vscode.repo
+    dest: /etc/yum.repos.d/vscode.repo
+    mode: '644'
+    owner: root
+    group: root

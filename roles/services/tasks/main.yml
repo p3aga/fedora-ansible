@@ -1,6 +1,5 @@
 ---
 - name: Enable SSH service
-  become: true
   ansible.builtin.service:
     name: sshd
     state: started
@@ -8,8 +7,13 @@
   when: services_enable_ssh
 
 - name: Enable Tailscale service
-  become: true
   ansible.builtin.service:
     name: tailscaled
     state: started
     enabled: true
+
+- name: Disable ABRT service
+  ansible.builtin.service:
+    name: abrtd
+    state: stopped
+    enabled: false
