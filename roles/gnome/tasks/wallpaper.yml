@@ -1,0 +1,20 @@
+---
+- name: Create custom wallpaper directory
+  ansible.builtin.file:
+    path: /usr/share/backgrounds/custom
+    state: directory
+    owner: root
+    group: root
+    mode: '755'
+
+- name: Deploy custom GNOME wallpaper
+  ansible.builtin.copy:
+    src: wallpaper.jpg
+    dest: /usr/share/backgrounds/wallpaper.jpg
+    owner: root
+    group: root
+    mode: '644'
+  loop:
+    - { src: 'custom.xml', dest: '/usr/share/gnome-background-properties/custom.xml' }
+    - { src: 'custom-d.jpg', dest: '/usr/share/backgrounds/custom/custom-d.jpg' }
+    - { src: 'custom-l.jpg', dest: '/usr/share/backgrounds/custom/custom-l.jpg' }

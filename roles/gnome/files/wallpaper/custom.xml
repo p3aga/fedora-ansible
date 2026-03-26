@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
+<wallpapers>
+  <wallpaper deleted="false">
+    <name>Custom</name>
+    <filename>/usr/share/backgrounds/custom/custom-l.jpg</filename>
+    <filename-dark>/usr/share/backgrounds/custom/custom-d.jpg</filename-dark>
+    <options>zoom</options>
+  </wallpaper>
+</wallpapers>

@@ -12,3 +12,6 @@
   notify:
     - Reset GNOME settings
     - Update dconf database
+
+- name: Deploy custom GNOME wallpaper
+  ansible.builtin.include_tasks: wallpaper.yml
