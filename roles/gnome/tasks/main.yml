@@ -1,8 +1,39 @@
 ---
+- name: Create custom wallpaper directory
+  ansible.builtin.file:
+    path: /usr/share/backgrounds/custom
+    state: directory
+    owner: root
+    group: root
+    mode: '755'
+
+- name: Deploy custom GNOME wallpaper
+  ansible.builtin.copy:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+    owner: root
+    group: root
+    mode: '644'
+  loop:
+    - { src: 'custom-d.jpg', dest: '/usr/share/backgrounds/custom/custom-d.jpg' }
+    - { src: 'custom-l.jpg', dest: '/usr/share/backgrounds/custom/custom-l.jpg' }
+    - { src: 'custom.xml', dest: '/usr/share/gnome-background-properties/custom.xml' }
+
+- name: Deploy GNOME wallpaper settings
+  ansible.builtin.template:
+    src: 98-custom-wallpaper.j2
+    dest: /etc/dconf/db/local.d/98-custom-wallpaper
+    owner: root
+    group: root
+    mode: '644'
+  notify:
+    - Reset GNOME settings
+    - Update dconf database
+
 - name: Deploy GNOME and GDM dconf settings
   ansible.builtin.copy:
     src: 99-custom-settings.conf
-    dest: '{{ item }}/99-custom-settings.conf'
+    dest: '{{ item }}/99-custom-settings'
     owner: root
     group: root
     mode: '644'
@@ -12,6 +43,3 @@
   notify:
     - Reset GNOME settings
     - Update dconf database
-
-- name: Deploy custom GNOME wallpaper
-  ansible.builtin.include_tasks: wallpaper.yml
