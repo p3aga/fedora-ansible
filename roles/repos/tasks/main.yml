@@ -24,11 +24,3 @@
   loop:
     - "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ repos_fedora_version }}.noarch.rpm"
     - "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ repos_fedora_version }}.noarch.rpm"
-
-- name: Configure VS Code repository
-  ansible.builtin.copy:
-    src: vscode.repo
-    dest: /etc/yum.repos.d/vscode.repo
-    mode: '644'
-    owner: root
-    group: root

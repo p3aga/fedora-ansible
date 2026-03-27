@@ -37,9 +37,3 @@
     - vagrant
     - vagrant-libvirt
     - virt-manager
-
-- name: Install VS Code
-  ansible.builtin.dnf:
-    name: code
-    state: present
-    update_cache: true
