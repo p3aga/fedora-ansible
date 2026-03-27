@@ -3,11 +3,11 @@
   hosts: localhost
   become: true
   roles:
-    - { role: repos, tags: [repos, packages] }
-    - { role: codecs, tags: [codecs, packages] }
     - { role: packages, tags: [packages] }
     - { role: flatpaks, tags: [flatpaks, packages] }
     - { role: brew, tags: [brew, packages] }
-    - { role: gnome, tags: [gnome, packages] }
-    - { role: libvirt, tags: [libvirt] }
+    - { role: vscode, tags: [vscode] }
+    - { role: tailscale, tags: [tailscale] }
+    - { role: gnome, tags: [gnome] }
+    - { role: libvirt, tags: [libvirt]}
     - { role: services, tags: [services] }
