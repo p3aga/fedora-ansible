@@ -1,0 +1,11 @@
+---
+- name: Install tailscale package
+  ansible.builtin.dnf:
+    name: tailscale
+    state: present
+
+- name: Enable Tailscale service
+  ansible.builtin.service:
+    name: tailscaled
+    state: started
+    enabled: true

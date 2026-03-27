@@ -6,12 +6,6 @@
     enabled: true
   when: services_enable_ssh
 
-- name: Enable Tailscale service
-  ansible.builtin.service:
-    name: tailscaled
-    state: started
-    enabled: true
-
 - name: Disable ABRT service
   ansible.builtin.service:
     name: abrtd

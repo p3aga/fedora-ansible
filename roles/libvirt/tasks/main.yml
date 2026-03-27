@@ -1,4 +1,11 @@
 ---
+- name: Install Libvirt packages
+  ansible.builtin.dnf:
+    name:
+      - libvirt
+      - virt-manager
+    state: present
+
 - name: Configure libvirt firewall backend
   ansible.builtin.lineinfile:
     path: /etc/libvirt/network.conf

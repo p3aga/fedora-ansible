@@ -24,7 +24,6 @@
     - gnome-tweaks
     - gnome-themes-extra
     - google-chrome-stable
-    - libvirt
     - neovim
     - nodejs
     - papirus-icon-theme
@@ -32,8 +31,6 @@
     - python3-neovim
     - python3-pip
     - rsms-inter-fonts
-    - tailscale
     - tmux
     - vagrant
     - vagrant-libvirt
-    - virt-manager
