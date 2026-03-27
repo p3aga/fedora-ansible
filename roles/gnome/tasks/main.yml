@@ -1,4 +1,12 @@
 ---
+- name: Install Theme/Icon/Font packages
+  ansible.builtin.dnf:
+    name:
+      - gnome-themes-extra
+      - papirus-icon-theme
+      - rsms-inter-fonts
+    state: present
+
 - name: Create custom wallpaper directory
   ansible.builtin.file:
     path: /usr/share/backgrounds/custom
@@ -20,8 +28,8 @@
     - { src: 'custom.xml', dest: '/usr/share/gnome-background-properties/custom.xml' }
 
 - name: Deploy GNOME wallpaper settings
-  ansible.builtin.template:
-    src: 98-custom-wallpaper.j2
+  ansible.builtin.copy:
+    src: 98-custom-wallpaper.conf
     dest: /etc/dconf/db/local.d/98-custom-wallpaper
     owner: root
     group: root

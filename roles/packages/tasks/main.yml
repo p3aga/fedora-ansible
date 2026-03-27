@@ -1,36 +1,51 @@
 ---
 - name: Remove unused packages
   ansible.builtin.dnf:
-    name: "{{ item }}"
+    name:
+      - gnome-boxes
+      - gnome-connections
+      - gnome-maps
+      - gnome-tour
+      - libreoffice-core
+      - mediawriter
+      - rhythmbox
+      - yelp
     state: absent
     allowerasing: true
   loop:
-    - gnome-boxes
-    - gnome-connections
-    - gnome-maps
-    - gnome-tour
-    - libreoffice-core
-    - mediawriter
-    - rhythmbox
-    - yelp
+
+- name: Config repositories
+  import_tasks: repos.yml
 
 - name: Install required packages
   ansible.builtin.dnf:
-    name: "{{ item }}"
+    name: 
+      - dnf-plugins-core
+      - docker-compose
+      - gnome-tweaks
+      - google-chrome-stable
+      - neovim
+      - nodejs
+      - plocate
+      - python3-neovim
+      - python3-pip
+      - tmux
+      - vagrant
+      - vagrant-libvirt
     state: present
   loop:
-    - dnf-plugins-core
-    - docker-compose
-    - gnome-tweaks
-    - gnome-themes-extra
-    - google-chrome-stable
-    - neovim
-    - nodejs
-    - papirus-icon-theme
-    - plocate
-    - python3-neovim
-    - python3-pip
-    - rsms-inter-fonts
-    - tmux
-    - vagrant
-    - vagrant-libvirt
+
+
+- name: Install multimedia package group
+  ansible.builtin.dnf:
+    name: '@Multimedia'
+    state: present
+    install_weak_deps: false
+    exclude:
+      - 'PackageKit-gstreamer-plugin'
+
+- name: Install FFmpeg codecs
+  ansible.builtin.dnf:
+    name: ffmpeg
+    state: present
+    allowerasing: true
