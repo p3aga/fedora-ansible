@@ -9,5 +9,6 @@
     - { role: vscode, tags: [vscode] }
     - { role: tailscale, tags: [tailscale] }
     - { role: gnome, tags: [gnome] }
-    - { role: libvirt, tags: [libvirt]}
+    - { role: libvirt, tags: [libvirt] }
+    - { role: fonts, tags: [fonts] }
     - { role: services, tags: [services] }
