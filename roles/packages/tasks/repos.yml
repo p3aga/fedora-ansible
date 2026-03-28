@@ -14,7 +14,7 @@
 
 - name: Get Fedora major version
   ansible.builtin.set_fact:
-    repos_fedora_version: "{{ ansible_distribution_major_version }}"
+    packages_fedora_version: "{{ ansible_distribution_major_version }}"
 
 - name: Install RPM Fusion repositories
   ansible.builtin.dnf:
@@ -22,5 +22,5 @@
     state: present
     disable_gpg_check: true
   loop:
-    - "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ repos_fedora_version }}.noarch.rpm"
-    - "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ repos_fedora_version }}.noarch.rpm"
+    - "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ packages_fedora_version }}.noarch.rpm"
+    - "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ packages_fedora_version }}.noarch.rpm"

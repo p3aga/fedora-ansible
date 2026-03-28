@@ -12,14 +12,13 @@
       - yelp
     state: absent
     allowerasing: true
-  loop:
 
 - name: Config repositories
-  import_tasks: repos.yml
+  ansible.builtin.import_tasks: repos.yml
 
 - name: Install required packages
   ansible.builtin.dnf:
-    name: 
+    name:
       - dnf-plugins-core
       - docker-compose
       - gnome-tweaks
@@ -33,8 +32,6 @@
       - vagrant
       - vagrant-libvirt
     state: present
-  loop:
-
 
 - name: Install multimedia package group
   ansible.builtin.dnf:
