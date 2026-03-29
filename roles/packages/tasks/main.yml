@@ -23,12 +23,10 @@
       - docker-compose
       - gnome-tweaks
       - google-chrome-stable
-      - neovim
       - nodejs
       - plocate
       - python3-neovim
       - python3-pip
-      - tmux
       - vagrant
       - vagrant-libvirt
     state: present
