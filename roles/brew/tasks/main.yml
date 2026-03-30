@@ -27,8 +27,11 @@
 
 - name: Set Homebrew directory group ownership
   ansible.builtin.file:
-    path: /home/linuxbrew
+    path: '{{ item.path }}'
     owner: root
     group: linuxbrew
     recurse: true
-    mode: '775'
+    mode: '{{ item.mode }}'
+  loop:
+    - { path: '/home/linuxbrew', mode: '775' }
+    - { path: '/home/linuxbrew/.linuxbrew/share/zsh', mode: '755' }
