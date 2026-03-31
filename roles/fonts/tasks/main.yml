@@ -1,9 +1,0 @@
----
-- name: Copy fonts directory
-  ansible.builtin.copy:
-    src: '{{ item }}'
-    dest: '/usr/share/fonts/{{ item }}'
-    mode: '755'
-  loop:
-    - maple-mono
-    - maple-mono-nerd

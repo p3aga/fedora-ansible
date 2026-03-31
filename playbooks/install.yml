@@ -5,10 +5,8 @@
   roles:
     - { role: packages, tags: [packages] }
     - { role: flatpaks, tags: [flatpaks, packages] }
-    - { role: brew, tags: [brew, packages] }
     - { role: vscode, tags: [vscode] }
     - { role: tailscale, tags: [tailscale] }
     - { role: gnome, tags: [gnome] }
     - { role: libvirt, tags: [libvirt] }
-    - { role: fonts, tags: [fonts] }
     - { role: services, tags: [services] }
