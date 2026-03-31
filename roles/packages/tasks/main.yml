@@ -29,6 +29,7 @@
       - python3-pip
       - vagrant
       - vagrant-libvirt
+      - zsh
     state: present
 
 - name: Install multimedia package group
