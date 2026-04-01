@@ -38,6 +38,17 @@
     - Reset GNOME settings
     - Update dconf database
 
+- name: Deploy GNOME extensions settings
+  ansible.builtin.copy:
+    src: 98-custom-extensions.conf
+    dest: /etc/dconf/db/local.d/98-custom-extensions
+    owner: root
+    group: root
+    mode: '644'
+  notify:
+    - Reset GNOME settings
+    - Update dconf database
+
 - name: Deploy GNOME and GDM dconf settings
   ansible.builtin.copy:
     src: 99-custom-settings.conf
