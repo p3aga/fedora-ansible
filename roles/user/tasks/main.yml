@@ -5,6 +5,6 @@
     state: present
     shell: "{{ item.shell | default('/bin/bash') }}"
     groups: "{{ item.groups | default(omit) }}"
-  loop: "{{ users }}"
+  loop: "{{ user_users }}"
   loop_control:
     label: "{{ item.username }}"

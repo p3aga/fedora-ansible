@@ -1,0 +1,9 @@
+services_enable_ssh: true
+
+user_users:
+  - username: henrick
+    shell: /bin/zsh
+    groups: wheel,libvirt
+
+  - username: elainne
+    shell: /bin/zsh
