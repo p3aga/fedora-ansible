@@ -40,8 +40,8 @@
 
 - name: Deploy GNOME extensions settings
   ansible.builtin.copy:
-    src: 98-custom-extensions.conf
-    dest: /etc/dconf/db/local.d/98-custom-extensions
+    src: 97-custom-extensions.conf
+    dest: /etc/dconf/db/local.d/97-custom-extensions
     owner: root
     group: root
     mode: '644'
