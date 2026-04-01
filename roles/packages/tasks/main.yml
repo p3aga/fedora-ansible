@@ -19,6 +19,7 @@
 - name: Install required packages
   ansible.builtin.dnf:
     name:
+      - chezmoi
       - dnf-plugins-core
       - docker-compose
       - gnome-tweaks
