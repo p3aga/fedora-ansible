@@ -10,3 +10,4 @@
     - { role: gnome, tags: [gnome] }
     - { role: libvirt, tags: [libvirt] }
     - { role: services, tags: [services] }
+    - { role: user, tags: [user] }

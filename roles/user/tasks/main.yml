@@ -1,0 +1,10 @@
+---
+- name: Create or Config user
+  ansible.builtin.user:
+    name: "{{ item.username }}"
+    state: present
+    shell: "{{ item.shell | default('/bin/bash') }}"
+    groups: "{{ item.groups | default(omit) }}"
+  loop: "{{ users }}"
+  loop_control:
+    label: "{{ item.username }}"

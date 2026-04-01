@@ -1,0 +1,6 @@
+services_enable_ssh: true
+
+users:
+  - username: henrick
+    shell: /bin/zsh
+    groups: wheel,libvirt
