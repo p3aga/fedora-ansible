@@ -24,7 +24,6 @@
       - dnf-plugins-core
       - docker-compose
       - gnome-tweaks
-      - google-chrome-stable
       - nodejs
       - plocate
       - python3-neovim

@@ -4,13 +4,14 @@
     name: phracek/PyCharm
     state: absent
 
-- name: Remove Nvidia and Steam RPM Fusion repos
+- name: Remove Unused repos
   ansible.builtin.file:
-    path: "/etc/yum.repos.d/rpmfusion-nonfree-{{ item }}.repo"
+    path: "/etc/yum.repos.d/{{ item }}.repo"
     state: absent
   loop:
-    - nvidia-driver
-    - steam
+    - rpmfusion-nonfree-nvidia-driver
+    - rpmfusion-nonfree-steam
+    - google-chrome
 
 - name: Get Fedora major version
   ansible.builtin.set_fact:
