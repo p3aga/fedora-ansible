@@ -1,4 +1,4 @@
-services_enable_ssh: true
+services_enable_ssh: false
 
 user_users:
   - username: henrick
