@@ -24,6 +24,7 @@
       - chezmoi
       - dnf-plugins-core
       - docker-compose
+      - golang
       - gnome-tweaks
       - nodejs
       - plocate
