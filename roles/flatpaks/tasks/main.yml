@@ -4,6 +4,7 @@
     name: "{{ item }}"
     state: present
   loop:
+    - app.zen_browser.zen
     - com.bitwarden.desktop
     - com.discordapp.Discord
     - com.spotify.Client
@@ -13,6 +14,8 @@
     - io.gitlab.adhami3310.Impression
     - io.podman_desktop.PodmanDesktop
     - org.localsend.localsend_app
+    - org.mozilla.firefox
+    - org.mozilla.Thunderbird
     - org.onlyoffice.desktopeditors
     - org.remmina.Remmina
     - org.videolan.VLC

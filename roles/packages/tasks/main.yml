@@ -2,6 +2,7 @@
 - name: Remove unused packages
   ansible.builtin.dnf:
     name:
+      - firefox
       - gnome-boxes
       - gnome-connections
       - gnome-maps
