@@ -1,0 +1,11 @@
+---
+msfonts_installer_version: '2.6-1'
+msfonts_installer_base_url: https://downloads.sourceforge.net/project/mscorefonts2/rpms
+msfonts_installer_package: "msttcore-fonts-installer-{{ msfonts_installer_version }}.noarch.rpm"
+msfonts_installer_url: "{{ msfonts_installer_base_url }}/{{ msfonts_installer_package }}"
+msfonts_installer_dest: "/tmp/{{ msfonts_installer_package }}"
+msfonts_dependencies:
+  - curl
+  - cabextract
+  - xorg-x11-font-utils
+  - fontconfig
