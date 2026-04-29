@@ -32,6 +32,7 @@
       - python3-pip
       - vagrant
       - vagrant-libvirt
+      - wireguard-tools
       - zsh
     state: present
 
@@ -48,3 +49,6 @@
     name: ffmpeg
     state: present
     allowerasing: true
+
+- name: Install Ghostty
+  ansible.builtin.import_tasks: ghostty.yml

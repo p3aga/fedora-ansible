@@ -1,0 +1,10 @@
+---
+- name: Enable Ghostty COPR
+  community.general.copr:
+    name: scottames/ghostty
+    state: enabled
+
+- name: Install Ghostty
+  ansible.builtin.dnf:
+    name: ghostty
+    state: present
