@@ -25,6 +25,7 @@
       - docker-compose
       - golang
       - gnome-tweaks
+      - nautilus-python
       - nodejs
       - plocate
       - python3-neovim
