@@ -1,0 +1,7 @@
+---
+- name: Remove unused Installed Flatpak apps
+  community.general.flatpak:
+    name: "{{ item }}"
+    state: absent
+  loop:
+    - com.ticktick.TickTick
