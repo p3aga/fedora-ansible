@@ -1,0 +1,24 @@
+---
+- name: Check if Microsoft TrueType fonts are already installed
+  ansible.builtin.stat:
+    path: /usr/share/fonts/msttcore
+  register: msttcore_dir
+
+- name: Install dependencies
+  ansible.builtin.dnf:
+    name: "{{ msfonts_dependencies }}"
+    state: present
+  when: not msttcore_dir.stat.exists
+
+- name: Download Microsoft TrueType fonts installer
+  ansible.builtin.get_url:
+    url: "{{ msfonts_installer_url }}"
+    dest: "{{ msfonts_installer_dest }}"
+    mode: '0644'
+  when: not msttcore_dir.stat.exists
+
+- name: Install Microsoft TrueType fonts
+  ansible.builtin.command:
+    cmd: "rpm -ivh --nodigest --nofiledigest {{ msfonts_installer_dest }}"
+    creates: /usr/share/fonts/msttcore
+  when: not msttcore_dir.stat.exists
