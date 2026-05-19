@@ -25,6 +25,8 @@
       - docker-compose
       - golang
       - gnome-tweaks
+      - kind
+      - kubernetes1.35-client
       - nautilus-python
       - nodejs
       - plocate
