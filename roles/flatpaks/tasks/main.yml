@@ -18,7 +18,6 @@
     - org.onlyoffice.desktopeditors
     - org.remmina.Remmina
     - org.videolan.VLC
-    - md.obsidian.Obsidian
 
 - name: Remove unused Installed Flatpak apps
   ansible.builtin.include_tasks: remove.yml
